@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root{
+
+  /* Colors */
+  --color-cream: #F2EAE2;
+  --color-metal: #6C7289; 
+  --color-gunmetal: #1C232B;
+  --color-aquamarine: #3D8168;
+  --color-aquamarine-dark: #1A4032;
+  --color-white: #FFF;
+
+  /* Spacing */
+  --spacing-small: .5rem;
+  --spacing-mid: 1rem;
+  --spacing-big: 1.75rem;
+}
+
+html,body{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  height: 100%;
+  background-color: var(--color-cream);
+  /* Font */
+  font-size: 16px;
+}
+
+h2,h3{
+  padding: 0;
+  margin: 0;
+}
+
+main{
+  height: 100%;
+}
+
+.card{
+  border-radius: 10px;
+  margin: var(--spacing-big) var(--spacing-mid);
+  background-color: var(--color-white);
+  color: var(--color-metal);
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: .875rem;
+
+  .card__image{
+    max-inline-size: 100%;
+    block-size: auto;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  .card__button{
+    background-color: var(--color-aquamarine);
+    padding: var(--spacing-mid);
+    color: var(--color-white);
+    display:block;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 10px;
+    cursor: pointer;
+
+    &:hover{
+      background-color: var(--color-aquamarine-dark);
+    }
+    
+    span::before{
+      content:url("./images/icon-cart.svg");
+      margin-right: var(--spacing-small);
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+
+  .card__details{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: min-content; 
+    gap: 10px;
+    padding: var(--spacing-big) var(--spacing-big);
+
+    .card__product-type{
+      font-size: .75rem;
+      font-weight: 500;
+      letter-spacing: 5px;
+      line-height: 23px;
+    }
+  
+    .card__product-name{
+      font-family: "Fraunces";
+      font-weight: 800;
+      color: var(--color-gunmetal);
+      font-size: 2rem;
+      line-height: 32px;
+    }
+
+    .card__prices{
+      display: flex;
+      align-items: center;
+
+      .card__price{
+        font-family: "Fraunces";
+        font-weight: 800;
+        color: var(--color-aquamarine);
+        font-size: 2rem;      
+      }
+
+      .card__original-price{
+        text-decoration: line-through;
+        margin-left: 1rem;
+      }
+    } 
+  }
+}
+
+@media (min-width: 375px) {
+  main{
+    display: grid;
+    place-items: center;
+  }
+
+  .card{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 600px;
+
+    .card__image{
+      border-radius: 0;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+      height: 100%;
+      width: 100%;
+    }
+
+    .card__details{
+      gap: 1.25rem;
+    }
+  }
+}
